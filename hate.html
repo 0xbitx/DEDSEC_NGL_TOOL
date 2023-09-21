@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <img src="https://avatars.githubusercontent.com/u/74537225?v=4" alt="0xbit" class="profile-picture">
+    <title>DEDSEC NGL TOOL</title>
+    <style>
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+        }
+
+        .black-card {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 70%;
+            margin: 0;
+            margin-left: 90px; 
+            padding: 3em;
+            
+        }
+
+        body {
+            background-color: transparent;
+            color: rgb(4, 203, 40);
+        }
+        
+        h1, h2, h3, p {
+            text-shadow: 2px 2px 2px rgb(0, 0, 0);
+        }
+
+    </style>
+    
+    <style>
+        
+        body::before {
+            content: "";
+            background: url('https://static.tumblr.com/4d0332765b8e78288234cddba52cc744/rliw7to/Snboh0vpq/tumblr_static_tumblr_static_filename_focused_v3.gif') no-repeat center center fixed;
+            background-size: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(5px);
+            z-index: -1;
+            opacity: 1.7;
+        }
+
+        @keyframes wave {
+            0% {
+                background-position: 200% 0;
+                
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        h3 {
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            text-align: center;
+            font-style: italic;
+            margin-top: -1%;
+            margin-bottom: 10%;
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+        h5 {
+            color: yellow;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            font-style: italic;
+            margin-top: -1%;
+            margin-bottom: 10%;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black; 
+            
+        }
+
+        .profile-picture {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px; 
+            object-fit: cover;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-button {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 15px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer-button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .input-container {
+            text-align: center;
+        }
+
+        .input-card {
+            background: rgba(255, 255, 255, 0.5);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 40px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-card input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .input-card input[type="text"]:focus {
+            border-color: #ff0000;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button-container button.clicked {
+            background-color: red;
+        }
+
+        #startButton {
+            padding: 15px 25px;
+            font-size: 18px;
+            font-family: Verdana;
+            background-color: #1ebce8;
+            color: #000000;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            border: 3px solid rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        #stopButton {
+            padding: 15px 25px;
+            font-size: 18px;
+            font-family: Verdana;
+            background-color: #1ebce8;
+            color: #000000;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            border: 3px solid rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        #startButton.clicked {
+            background-color: #0ab253;
+        }
+
+        #stopButton.clicked {
+            background-color: red;
+
+        
+        }
+       
+        .glitch-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        .glitch {
+            position: relative;
+            font-size: 50px; 
+            font-family: Monaco;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #fff;
+            letter-spacing: 5px;
+            z-index: 1;
+            background-color: transparent; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+        }
+
+        .glitch:before,
+        .glitch:after {
+            display: block;
+            content: attr(data-glitch);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .glitch:before {
+            animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: #00ffff;
+            z-index: -1;
+        }
+
+        .glitch:after {
+            animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+            color: #ff00ff;
+            z-index: -2;
+        }
+
+        @keyframes glitch-color {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-3px, 3px);
+            }
+
+            40% {
+                transform: translate(-3px, -3px);
+            }
+
+            60% {
+                transform: translate(3px, 3px);
+            }
+
+            80% {
+                transform: translate(3px, -3px);
+            }
+
+            to {
+                transform: translate(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="infoSection" class="black-card" style="display: none;">
+        <h2>INFO ABOUT YOU:</h2>
+        <p><strong>IPv6 Address:</strong> <span id="ip_address"></span></p>
+        <p><strong>IPv4 Address:</strong> <span id="ipv4_address"></span></p>
+        <p><strong>Device:</strong> <span id="deviceInfo"></span></p>
+        <p><strong>Screen Resolution:</strong> <span id="resolutionInfo"></span></p>
+        <p><strong>Country Name:</strong> <span id="country_name"></span></p>
+        <p><strong>ISP:</strong> <span id="isp"></span></p>
+        <p><strong>Latitude:</strong> <span id="latitude"></span></p>
+        <p><strong>Longitude:</strong> <span id="longitude"></span></p>
+        <p><strong>Target username:</strong> <span id="usernameInfo"></span></p>
+        <p><strong> ⚠️ IN CASE OF TOOL ABUSE ⚠️ </strong></p>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        function detectDevice() {
+            var userAgent = navigator.userAgent.toLowerCase();
+
+            if (userAgent.includes("mobile")) {
+                return "Smartphone";
+            } else if (userAgent.includes("tablet")) {
+                return "Tablet";
+            } else {
+                return "Laptop or Desktop";
+            }
+        }
+        var deviceType = detectDevice();
+        document.getElementById("deviceInfo").textContent = deviceType;
+
+        var screenWidth = window.screen.width;
+        var screenHeight = window.screen.height;
+        document.getElementById("resolutionInfo").textContent = screenWidth + "x" + screenHeight;
+
+        function injectInfo() {
+            $.getJSON("https://ipapi.co/json/", function (data) {
+                $("#ip_address").text(data.ip);
+                $("#country_name").text(data.country_name);
+                $("#isp").text(data.org);
+                $("#latitude").text(data.latitude);
+                $("#longitude").text(data.longitude);
+            });
+
+            $.get("https://ipv4.icanhazip.com", function (ipv4Address) {
+                $("#ipv4_address").text(ipv4Address);
+            });
+
+            $("#user_agent").text(navigator.userAgent);
+        }
+        injectInfo();
+
+    </script>
+    <div class="glitch-wrapper">
+        <h1 class="glitch" data-glitch="DEDSEC NGL HATE SPAMMER">DEDSEC NGL HATE SPAMMER</h1>
+    </div>
+
+    <h3>dedsec ngl spammer and exploit tool by 0xbit</h3>
+    <h5>⚠️ Please use this tool responsibly and ethically. Do not abuse it or target innocent individuals. Respect the rights and privacy of others.⚠️</h5>
+    <div class="input-container">
+        <div class="input-card">
+            <input type="text" id="username" placeholder="Enter username">
+        </div>
+    </div>
+    
+    <div class="button-container">
+        <button id="startButton" onclick="startFunction()">START</button>
+        <button id="stopButton" onclick="stopFunction()">STOP</button>
+    </div>
+    
+    <footer>
+        <a href="index.html" class="footer-button">CUSTOM SPAM</a>
+        <a href="hate.html" class="footer-button">HATE SPAM</a>
+        <a href="deleter.html" class="footer-button">DELETER</a>
+
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <a href="https://discord.com/invite/EgkWPws6vV" class="footer-button1">Contact</a>
+        <a href="https://discord.com/invite/EgkWPws6vV" class="footer-button1" target="_blank">Discord</a>
+        <a href="https://github.com/0xbitx" class="footer-button1" target="_blank">GitHub</a>
+    </footer>
+
+    <style>
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .footer-button1 {
+            display: inline-block;
+            margin: 10px;
+            margin-top: 30%;
+            padding: 5px 15px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 15px;
+            border: 3px solid rgb(0, 0, 0);
+            outline: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        .footer-button1:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        .footer-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            margin-top: 10%;
+            font: bolder;
+            font-size: 16px;
+            font-style: italic;
+            background-color: #0ab253;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            border: 3px solid rgb(0, 0, 0);
+            outline: none;
+            cursor: pointer;
+        }
+    
+        .footer-button:hover {
+            background-color: #ba0f0f;
+            color: #fff;
+        }
+
+    </style>
+    
+    <script>
+    
+        var xhrArray = [];
+        var isRunning = false;
+
+        var games = ['', 'confessions', '3words', 'wfriendship', 'rizzme', 'tbh', 'shipme', 'yourcrush', 'cancelled', 'dealbreaker'];
+    
+        var gameSlug = games[Math.floor(Math.random() * games.length)];
+
+        function generateRandomDeviceId() {
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+
+        var randomDeviceId = generateRandomDeviceId();
+
+        function startFunction() {
+            if (isRunning) {
+                return;
+            }
+            
+            var username = document.getElementById("username").value;
+            var question = `
+⠀⠀⠀⠀⠀⠀⠀⢀⡤⠤⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣾⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀ 
+⠀⠀⠀⢀⡾⠋⠻⡇⠀⠀⢸⣧⣀⡀⠀⠀⠀⠀
+⠀⠀⢀⣾⠁⠀⠀⡇⠀⠀⢸⠁⠀⢹⣀⠀⠀⠀
+⢀⡴⠋⡟⠀⠀⢠⡇⠀⠀⢸⠀⠀⠀⡇⠉⢆⠀
+⡎⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⠀⠈⣆
+⢷⡀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸
+⠀⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾
+⠀⠀⠈⠻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠁
+⠀⠀⠀⠀⠈⣷⠀⠀⠀⠀⠀⠀⠀⠀⢰⠋⠀⠀
+⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀
+⠀⠀⠀⠀⠀⠛⠒⠒⠒⠒⠒⠒⠒⠚⠃⠀⠀⠀
+`;
+            document.getElementById("infoSection").style.display = "block";
+
+            var username = document.getElementById("username").value;
+            document.getElementById("usernameInfo").textContent = username;
+
+            document.getElementById("startButton").classList.add("clicked");
+            document.getElementById("stopButton").classList.remove("clicked");
+        
+            isRunning = true;
+
+            var intervalId = setInterval(function() {
+                var xhr = new XMLHttpRequest();
+                var url = "https://ngl.link/api/submit";
+                xhr.open("POST", url, true);
+                xhr.setRequestHeader("Accept", "*/*");
+                xhr.setRequestHeader("Accept-Encoding", "gzip, deflate, br");
+                xhr.setRequestHeader("Accept-Language", "en-US,en;q=0.9");
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                xhr.setRequestHeader("Host", "ngl.link");
+                xhr.setRequestHeader("Origin", "https://ngl.link");
+                xhr.setRequestHeader("Referer", "https://ngl.link/@" + username);
+                xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36");
+
+                var data = "username=" + username + "&question=" + question + "&deviceId=" + randomDeviceId + "&gameSlug=" + gameSlug + "";
+
+                xhr.send(data);
+
+                xhrArray.push(xhr);
+            }, 1000);
+
+            xhrArray.push(intervalId);
+        }
+
+        function stopFunction() {
+            document.getElementById("stopButton").classList.add("clicked");
+            document.getElementById("startButton").classList.remove("clicked");
+            
+            for (var i = 0; i < xhrArray.length; i++) {
+                clearInterval(xhrArray[i]);
+                if (xhrArray[i] instanceof XMLHttpRequest) {
+                    xhrArray[i].abort();
+                }
+            }
+            
+            xhrArray = [];
+            isRunning = false;
+        }
+    </script>
+</body>
+</html>
